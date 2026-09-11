@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Panel Anfitrión</title></head>
+<body style="background-color: #f0f4f8; font-family: sans-serif; padding: 20px;">
+
+    <h2 style="color: #2c3e50;">Panel de Control: Anfitrión</h2>
+    
+    <!-- Imprimimos datos reales de la base de datos de la Sesión 1 -->
+    <p>Bienvenido de vuelta, <strong>{{ request.user.first_name }}</strong>.</p>
+    <p>Tus alertas llegarán al correo: <em>{{ request.user.email }}</em></p>
+    <p>Teléfono de contacto registrado: {{ request.user.phone_number }}</p>
+    
+    <hr>
+    <h3>Tus Espacios (Próximamente)</h3>
+    <p>Aquí listaremos los lugares que tienes publicados en la plataforma.</p>
+
+    <!-- Cerrar sesión de forma segura por POST -->
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" style="background: red; color: white;">Cerrar Sesión</button>
+    </form>
+
+</body>
+</html>

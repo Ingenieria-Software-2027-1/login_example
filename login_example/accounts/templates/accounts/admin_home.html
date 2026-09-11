@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Panel de Administración</title></head>
+<body style="background-color: #fdf2e9; font-family: sans-serif; padding: 20px;">
+
+    <h2 style="color: #d35400;">Panel del Administrador del Sistema</h2>
+    <p>Hola, <strong>{{ request.user.username }}</strong>. Detectamos que no eres ni anfitrión ni arrendatario, sino parte del Staff.</p>
+    
+    <div style="background: white; padding: 20px; border-radius: 5px; border: 1px solid #f5cba7;">
+        <p>Desde aquí no puedes buscar ni publicar espacios, pero tienes acceso maestro a la base de datos.</p>
+        <!-- Enlace directo al panel de Django Admin nativo -->
+        <a href="{% url 'admin:index' %}" style="display: inline-block; padding: 10px; background: #d35400; color: white; text-decoration: none; border-radius: 3px;">Ir al Gestor de Base de Datos</a>
+    </div>
+
+    <br>
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Cerrar Sesión</button>
+    </form>
+
+</body>
+</html>

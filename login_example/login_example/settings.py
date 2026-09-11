@@ -128,3 +128,11 @@ MAILERS = {
 }
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.EmailBackend', # Intenta primero con el email
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_REDIRECT_URL = 'dashboard' # A donde se va si el login es exitoso
+LOGOUT_REDIRECT_URL = 'login' # A donde se va si el logout es exitoso

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Reservas B2B</title>
+</head>
+<body style="font-family: sans-serif; margin: 50px;">
+
+    <h2>Ingresa a tu cuenta</h2>
+    
+    <!-- form.errors es manejado automáticamente por Django si el Backend falla -->
+    {% if form.errors %}
+        <div style="background-color: #ffdddd; color: red; padding: 10px; border: 1px solid red;">
+            Correo o contraseña incorrectos. Verifica tus datos.
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- form.as_p dibuja todo nuestro EmailAuthenticationForm -->
+        {{ form.as_p }}
+        
+        <button type="submit" style="padding: 10px 20px; background: blue; color: white;">Entrar</button>
+    </form>
+
+</body>
+</html>
