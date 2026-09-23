@@ -8,7 +8,7 @@ class CustomLoginView(LoginView):
     template_name = 'accounts/login.html'
     redirect_authenticated_user = True # Si ya estoy logueado, no me dejes ver de nuevo el login
     
-
+@login_required
 def dashboard_view(request):
     usuario_actual = request.user 
     

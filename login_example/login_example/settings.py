@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts'
+    'accounts',
+    'spaces',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,6 @@ AUTHENTICATION_BACKENDS = [
     'accounts.backends.EmailBackend', # Intenta primero con el email
     'django.contrib.auth.backends.ModelBackend',
 ]
-
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard' # A donde se va si el login es exitoso
 LOGOUT_REDIRECT_URL = 'login' # A donde se va si el logout es exitoso
