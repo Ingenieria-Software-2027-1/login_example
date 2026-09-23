@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>publicar espacio</title>
+</head>
+<body>
+    <h1>publicar espacio</h1>
+
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">publicar</button>
+    </form>
+
+    <a href="{% url 'dashboard' %}">regresar al panel</a>
+</body>
+</html>
