@@ -11,6 +11,8 @@
         <button>Buscar</button>
     </div>
 
+    <p><a href="{% url 'catalogo' %}">Ver catálogo de espacios</a></p>
+
     <br>
     <form action="{% url 'logout' %}" method="POST">
         {% csrf_token %}

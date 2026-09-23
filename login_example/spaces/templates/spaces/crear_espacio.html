@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Publicar Espacio</title></head>
+<body style="font-family: sans-serif; padding: 20px;">
+    <h2>Publicar nuevo espacio</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar espacio</button>
+    </form>
+    <p><a href="{% url 'dashboard' %}">Volver al panel</a></p>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Catálogo de Espacios</title></head>
+<body style="font-family: sans-serif; padding: 20px;">
+    <h2>Espacios disponibles</h2>
+    {% for espacio in espacios %}
+        <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+            <h3>{{ espacio.name }}</h3>
+            <p>{{ espacio.description }}</p>
+            <p>Capacidad: {{ espacio.capacity }} personas</p>
+            <p>Precio por hora: ${{ espacio.price_per_hour }}</p>
+            <p>Anfitrión: {{ espacio.host.username }}</p>
+        </div>
+    {% empty %}
+        <p>No hay espacios disponibles por el momento.</p>
+    {% endfor %}
+    <p><a href="{% url 'dashboard' %}">Volver al panel</a></p>
+</body>
+</html>
