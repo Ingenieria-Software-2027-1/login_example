@@ -11,8 +11,8 @@
     <p>Teléfono de contacto registrado: {{ request.user.phone_number }}</p>
     
     <hr>
-    <h3>Tus Espacios (Próximamente)</h3>
-    <p>Aquí listaremos los lugares que tienes publicados en la plataforma.</p>
+    <h3>Publicación de espacios</h3>
+    <p><a href="{% url 'spaces:crear' %}">Publicar un espacio</a></p>
 
     <!-- Cerrar sesión de forma segura por POST -->
     <form action="{% url 'logout' %}" method="POST">
