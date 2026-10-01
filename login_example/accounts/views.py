@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from .forms import EmailAuthenticationForm 
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from .forms import RegistroForm
 
 class CustomLoginView(LoginView):
     form_class = EmailAuthenticationForm
@@ -23,3 +26,8 @@ def dashboard_view(request):
     else:
         # Por si el usuario es superusuario
         return render(request, 'accounts/admin_home.html')
+    
+class RegistroView(CreateView):
+    template_name = 'accounts/registro.html'
+    form_class = RegistroForm
+    success_url = reverse_lazy('login')

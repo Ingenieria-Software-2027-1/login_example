@@ -11,4 +11,7 @@ urlpatterns = [
     
     # Ruta para el panel dinamico
     path('dashboard/', views.dashboard_view, name='dashboard'),
+    
+    # Ruta para registrar usuario
+    path('registro/', views.RegistroView.as_view(), name='registro'),
 ]
