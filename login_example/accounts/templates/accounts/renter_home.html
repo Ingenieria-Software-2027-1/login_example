@@ -2,6 +2,9 @@
 <html lang="es">
 <head><title>Buscar Espacios</title></head>
 <body style="background-color: #e8f5e9; font-family: sans-serif; padding: 20px;">
+    <a href="{% url 'catalogo_espacios' %}" class="btn btn-primary">
+    <i class="bi bi-grid-3x3-gap me-1"></i> Ver Catálogo de Espacios
+    </a>
 
     <h2 style="color: #2e7d32;">Buscador de Espacios</h2>
     <p>Hola <strong>{{ request.user.username }}</strong>, ¿Qué lugar necesitas reservar hoy?</p>

@@ -1,0 +1,47 @@
+{% extends "spaces/base.html" %}
+
+{% block title %}Catálogo de Espacios{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+    <div>
+        <h2 class="fw-bold mb-1"><i class="bi bi-grid-3x3-gap text-primary me-2"></i>Catálogo de Espacios</h2>
+        <p class="text-muted mb-0">Espacios disponibles para arrendamiento por hora.</p>
+    </div>
+    <a href="{% url 'crear_espacio' %}" class="btn btn-success shadow-sm">
+        <i class="bi bi-plus-circle me-1"></i> Registrar Espacio (Anfitrión)
+    </a>
+</div>
+
+<div class="row">
+    {% for espacio in espacios %}
+        <div class="col-md-4 mb-4">
+            <div class="card card-custom h-100 shadow-sm border-top border-primary border-4">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="card-title text-primary fw-bold mb-0">{{ espacio.name }}</h5>
+                        <span class="badge bg-primary fs-6">${{ espacio.price_per_hour }}/hr</span>
+                    </div>
+                    <p class="card-text text-muted flex-grow-1">{{ espacio.description }}</p>
+                    
+                    <div class="bg-light p-2 rounded text-secondary small my-3">
+                        <div class="mb-1"><i class="bi bi-people-fill me-1"></i><strong>Capacidad:</strong> {{ espacio.capacity }} personas</div>
+                        <div><i class="bi bi-person-badge-fill me-1"></i><strong>Anfitrión:</strong> {{ espacio.host.username }}</div>
+                    </div>
+
+                    <button class="btn btn-outline-primary btn-sm w-100 mt-auto">
+                        <i class="bi bi-calendar-check me-1"></i> Reservar
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info py-4 text-center shadow-sm">
+                <i class="bi bi-info-circle display-6 d-block mb-2"></i>
+                No hay espacios disponibles en este momento.
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "spaces/base.html" %}
+
+{% block title %}Crear Nuevo Espacio{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card card-custom shadow-sm border-0">
+            <div class="card-header bg-success text-white py-3">
+                <h4 class="mb-0 fw-bold"><i class="bi bi-plus-lg me-2"></i>Registrar Nuevo Espacio</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Nombre del Espacio</label>
+                        {{ form.name }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Descripción</label>
+                        {{ form.description }}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Capacidad (Personas)</label>
+                            {{ form.capacity }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Precio por Hora ($)</label>
+                            {{ form.price_per_hour }}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <a href="{% url 'catalogo_espacios' %}" class="btn btn-outline-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-success px-4 fw-semibold">
+                            <i class="bi bi-check-circle me-1"></i> Guardar Espacio
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
